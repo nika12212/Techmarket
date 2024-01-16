@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology</title>
+    <meta name="description" content="{% block description %}Description of your webpage{% endblock %}">
+    <link rel="stylesheet" href="../static/css/global.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="https://cdn.example.com/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/dist/css/bootstrap.min.css">
+    <link href="carousel.css" rel="stylesheet">
+<style>
+
+
+
+</style>
+
+
+</head>
+<body>
+{% if user_authenticated %}
+<header data-bs-theme="dark">
+  <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white">
+    <div class="container-fluid d-flex justify-content-center align-items-center">
+      <a class="navbar-brand" href="https://www.tbceducation.ge/" target="_blank"><img src="../static/images/tbc2.png" style="width: 170px; height: auto;"></a>
+
+      <button style="background-color:black;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div  class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/index" style="color: black;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/add_products" style="color: black;">Add your Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/added_products" style="color: black;">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/" style="color: black;">Log out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+{% else %}
+<header data-bs-theme="dark">
+  <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white">
+    <div class="container-fluid d-flex justify-content-center align-items-center">
+      <a class="navbar-brand" href="https://www.tbceducation.ge/" target="_blank"><img src="../static/images/tbc2.png" style="width: 170px; height: auto;"></a>
+
+      <button style="background-color:black;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div  class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0 d-flex justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/" style="color: black;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/prod-base" style="color: black;">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('sign_up') }}" style="color: black;">Sign up</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+   {% endif %}
+    <div class="s">
+        {% block content %}{% endblock %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+
+    <script src="../assets/js/color-modes.js"></script>
+</body>
+</html>

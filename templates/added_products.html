@@ -1,0 +1,233 @@
+{% extends 'header.html' %}
+
+{% block content %}
+    <br>
+    <br>
+    <br>
+    <h1 style="display:flex; justify-content:center;">Products</h1>
+<br>
+
+<br>
+<div style="width: 40%; gap: 10px;  margin: auto; text-align: center;" class="input-group mb-3">
+    <input type="text" class="form-control col-sm-6" id="searchInput" placeholder="Search...">
+    <div class="input-group-append">
+        <button class="btn btn-primary" type="button" onclick="searchProducts()">Search</button>
+    </div>
+</div>
+
+<div id="results"></div>
+
+
+<br>
+    <hr class="featurette-divider">
+    <br>
+    <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;" class="items">
+
+        {% for user_info in user_infos %}
+            <div class="card" style="width: 18rem;">
+                <img style="height:250px;" src="{{ user_info.image }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ user_info.name }}</h5>
+                    <div class="card-text"><strong>Category:</strong> <br>{{ user_info.category }}<br></div>
+                    <div class="card-text"><strong>Price:</strong> <br>{{ user_info.price }}$<br></div>
+                    <div class="card-text"><strong>Description:</strong><br>{{ user_info.description }}<br></div>
+                    <div class="card-text"><strong>Item Condition:</strong> <br>{{ user_info.item_condition }}<br></div>
+                    <div class="card-text"><strong>Email:</strong><br> {{ user_info.email }}</div>
+                    <br>
+                    <br>
+                    <br>
+                    <a href="#" class="btn btn-primary">Add to cart</a>
+                    <br>
+<br>
+
+
+
+      {% if show_delete_buttons %}
+
+                        <form method="POST" action="{{ url_for('remove_product', product_id=user_info.id) }}">
+                            <button class="btn btn-danger"  type="submit">Delete</button>
+                        </form>
+                    {% endif %}
+
+    </div>
+
+
+            </div>
+        {% endfor %}
+        <div class="card" style="width: 18rem;">
+  <img src="../static/images/0182064_apple-watch-ultra-49mm-titanium-blackgrey-trail-loop-mqf43-sm_550.webp" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Apple Watch Ultra </h5>
+      <div class="card-text"><strong>Category:</strong> <br>SmartWatch<br></div>
+      <div class="card-text"><strong>Price:</strong> <br>150$<br></div>
+      <div class="card-text"><strong>Description:</strong> <br>user_info.description <br></div>
+      <div class="card-text"><strong>Item Condition:</strong> <br>New<br></div>
+      <div class="card-text"><strong>Email:</strong> <br>  Nacepib960@newcupon.com </div>
+      <br>
+      <a href="#" class="btn btn-primary">Add to cart</a>
+      <br>
+      <br>
+      {% if show_delete_buttons %}
+     <button class="btn btn-danger" onclick="deleteCard(this)">Delete</button>
+{% endif %}
+  </div>
+</div>
+
+<div class="card" style="width: 19rem; ">
+  <img src="../static/images/58d2ef74-8ce1-416f-8058-ae05779ba13e_Thumb.webp" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Asus ROG Ally RC71L Z1</h5>
+    <div class="card-text"><strong>Category:</strong> <br>Leptop<br></div>
+      <div class="card-text"><strong>Price:</strong> <br>1500$<br></div>
+      <div class="card-text"><strong>Description:</strong> <br>user_info.description <br></div>
+      <div class="card-text"><strong>Item Condition:</strong> <br>New<br></div>
+      <div class="card-text"><strong>Email:</strong> <br>tonihalk@turu.software</div>
+      <br>
+      <a href="#" class="btn btn-primary">Add to cart</a>
+      <br>
+      <br>
+          {% if show_delete_buttons %}
+     <button class="btn btn-danger" onclick="deleteCard(this)">Delete</button>
+{% endif %}
+  </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <img src="../static/images/6afc6740-d8d2-4345-81ec-559c69b79fc1_Thumb.webp" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Marshall Motif II ANC </h5>
+    <div class="card-text"><strong>Category:</strong> <br>Headphones<br></div>
+      <div class="card-text"><strong>Price:</strong> <br>300$<br></div>
+      <div class="card-text"><strong>Description:</strong> <br> user_info.description <br></div>
+      <div class="card-text"><strong>Item Condition:</strong> <br>like new<br></div>
+      <div class="card-text"><strong>Email:</strong> <br>yakrus1@slcemail.in</div>
+      <br>
+      <a href="#" class="btn btn-primary">Add to cart</a>
+      <br>
+      <br>
+          {% if show_delete_buttons %}
+     <button class="btn btn-danger" onclick="deleteCard(this)">Delete</button>
+{% endif %}
+  </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <img src="../static/images/0182436_apple-ipad-pro-11-2022-4th-gen-128gb-wi-fi-silver_550.webp" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Apple iPad Pro 11 </h5>
+    <div class="card-text"><strong>Category:</strong> <br>Tablet<br></div>
+      <div class="card-text"><strong>Price:</strong> <br>1100$<br></div>
+      <div class="card-text"><strong>Description:</strong> <br> user_info.description <br></div>
+      <div class="card-text"><strong>Item Condition:</strong> <br>Used<br></div>
+      <div class="card-text"><strong>Email:</strong> <br>vikaplonish@africafrique.com</div>
+      <br>
+      <a href="#" class="btn btn-primary">Add to cart</a>
+    <br>
+      <br>
+           {% if show_delete_buttons %}
+     <button class="btn btn-danger" onclick="deleteCard(this)">Delete</button>
+{% endif %}
+  </div>
+</div>
+
+
+  <div class="card" style="width: 18rem;">
+    <img src="../static/images/S23.webp" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Samsung Galaxy S23 FE</h5>
+        <div class="card-text"><strong>Category:</strong> <br>Mobile<br></div>
+      <div class="card-text"><strong>Price:</strong> <br>3000$<br></div>
+      <div class="card-text"><strong>Description:</strong> <br>user_info.description <br></div>
+      <div class="card-text"><strong>Item Condition:</strong> <br>New<br></div>
+      <div class="card-text"><strong>Email:</strong> <br>vedacev@keenconstructionco.com</div>
+        <br>
+      <a href="#" class="btn btn-primary">Add to cart</a>
+          <br>
+           <br>
+          {% if show_delete_buttons %}
+     <button class="btn btn-danger" onclick="deleteCard(this)">Delete</button>
+{% endif %}
+    </div>
+  </div>
+
+
+<div class="card" style="width: 18rem;">
+  <img src="../static/images/0186120_samsung-galaxy-s23-ultra-5g-s918bds-12256gb-phantom-black_550.webp" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Samsung Galaxy S23 Ultra</h5>
+     <div class="card-text"><strong>Category:</strong> <br>Mobile<br></div>
+      <div class="card-text"><strong>Price:</strong> <br>3400$<br></div>
+      <div class="card-text"><strong>Description:</strong> <br> user_info.description <br></div>
+      <div class="card-text"><strong>Item Condition:</strong> <br>Like new<br></div>
+      <div class="card-text"><strong>Email:</strong> <br>liliyalidakosa@nurturesoflovehealthcare.com </div>
+      <br>
+      <a href="#" class="btn btn-primary">Add to cart</a>
+         <br>
+      <br>
+      {% if show_delete_buttons %}
+     <button class="btn btn-danger" onclick="deleteCard(this)">Delete</button>
+{% endif %}
+  </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <img src="../static/images/cb67fff2-633b-479b-9c63-12e72f6f786c_Thumb.webp" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Apple iPhone 15 Pro </h5>
+   <div class="card-text"><strong>Category:</strong> <br>Mobile<br></div>
+      <div class="card-text"><strong>Price:</strong> <br>2350$<br></div>
+      <div class="card-text"><strong>Description:</strong> <br>user_info.description <br></div>
+      <div class="card-text"><strong>Item Condition:</strong> <br>Used<br></div>
+      <div class="card-text"><strong>Email:</strong> <br>epoch2008@alphaplumbingco.com</div>
+      <br>
+      <a href="#" class="btn btn-primary">Add to cart</a>
+      <br>
+      <br>
+    {% if show_delete_buttons %}
+     <button class="btn btn-danger" onclick="deleteCard(this)">Delete</button>
+{% endif %}
+  </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <img src="../static/images/0144415_apple-macbook-air-13-inch-2020-mgn93lla-m1chipset8gb256gb-ssd-silver-apple-m15nm-apple-7-core-gpu-8g_550.webp" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Apple Macbook Air 13 </h5>
+     <div class="card-text"><strong>Category:</strong> <br>Macbook<br></div>
+      <div class="card-text"><strong>Price:</strong> <br>2500$<br></div>
+      <div class="card-text"><strong>Description:</strong> <br> user_info.description <br></div>
+      <div class="card-text"><strong>Item Condition:</strong> <br>Like new<br></div>
+      <div class="card-text"><strong>Email:</strong> <br>ljone84889@xaimon.dev</div>
+      <br>
+      <a href="#" class="btn btn-primary">Add to cart</a>
+         <br>
+      <br>
+     {% if show_delete_buttons %}
+     <button class="btn btn-danger" onclick="deleteCard(this)">Delete</button>
+{% endif %}
+  </div>
+    </div>
+
+
+</div>
+<script>
+        function searchProducts() {
+            var input, filter, cards, card, title, i;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            cards = document.getElementsByClassName("card");
+
+            for (i = 0; i < cards.length; i++) {
+                card = cards[i];
+                title = card.getElementsByClassName("card-title")[0];
+                if (title) {
+                    if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+                        card.style.display = "";
+                    } else {
+                        card.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+{% endblock %}

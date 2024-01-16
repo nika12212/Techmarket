@@ -1,0 +1,64 @@
+{% extends 'header.html' %}
+
+{% block content %}
+<style>
+
+    .sign_up {
+        font-family: 'Arial', sans-serif;
+        background-color: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0; /* Reset default margin */
+    }
+
+    .container {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px;
+        text-align: center;
+    }
+
+    h2 {
+        color: #333;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        text-decoration: none;
+        color: #fff;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-register {
+        background-color: #4CAF50;
+    }
+
+    .btn-login {
+        background-color: #3498db;
+    }
+
+    .btn:hover {
+        background-color: #555;
+    }
+
+    .btn:active {
+        transform: scale(0.95);
+    }
+</style>
+
+<div class="sign_up">
+    <div class="container">
+        <h2>Choose an option</h2>
+        <a href="{{ url_for('register') }}" class="btn btn-register">Register</a>
+        <a href="{{ url_for('login') }}" class="btn btn-login">Login</a>
+    </div>
+</div>
+
+{% endblock %}

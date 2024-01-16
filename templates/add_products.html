@@ -1,0 +1,30 @@
+{% extends 'header.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="text-center mt-5 mb-4">Add Products</h1>
+
+        {% if user_authenticated %}
+            <form method="POST" enctype="multipart/form-data">
+
+                {% for field in form %}
+                    <div class="form-group">
+                        {{ field.label }}
+                        {{ field(class="form-control") }}
+                        {% if field.errors %}
+                            <small class="text-danger">
+                                {% for error in field.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </small>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+
+            </form>
+        {% else %}
+            <p class="text-center">You must be logged in to add products.</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
